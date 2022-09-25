@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <script src="https://kit.fontawesome.com/95037a2505.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CSSRulePlugin3.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<style>
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        border-radius: 5px;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.25);
+    }
+    ::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: #c2c1c1;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #d2d2d2;
+    }
+</style>
+    
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+    <title>Insta Clone</title>
+
+</head>
+
+<body>
+    <nav>
+        <div class="container">
+
+         <div>
+            <h2 class="logo">Instgram</h2>
+            <small class="ver">version 3.3.0</small>
+         </div>
+        <div class="search-bar">
+            <i class="uil uil-search"></i>
+            <input type="search" placeholder="Type what are you looking forward here">
+
+        </div>
+        <div class="create">
+            <label class="btn btn-primary" for="create post">Create</label>
+            <div class="profile-picture">
+                <img src="/imgs/myimg.jpg" alt="">
+            </div>
+        </div>
+        </div>
+    </nav>
+
+                    <!--    Main Section      -->
+
+    <main>
+        <div class="container">
+                        <!--     Left Side      --> 
+            <div class="left">
+                <a class="profile">
+                    <div class="profile-photo">
+                        <div class="skeletonimg"></div>
+                        <img src="/imgs/myimg.jpg" class="ske">
+                    </div>
+                    <div class="handle">
+                        <div class="text-line-tall"></div>
+                        <h4>Ahmed E.Elmohamady</h4>
+                        <div class="text-line-short"></div>
+
+                        <p class="text-muted">
+                            @dayi
+                        </p>
+                    </div>
+                </a>
+           <!--     side bar   -->
+                                
+            <div class="sidebar">
+                <a class="menu-iteam active">
+                    <span><i class="uil uil-estate"></i></span><h3>Home</h3>
+                </a>
+                <a class="menu-iteam">
+                    <span><i class="uil uil-compass"></i></span><h3>Explore</h3>
+                </a>
+
+                <a class="menu-iteam" id="notifications">
+                    <span><i class="uil uil-bell"> <small class="notifications-count-notifocation">9+</small></i></span><h3>Notification</h3>
+
+                                    <!--     notofication onclick popup        -->
+                                    <div class="notifications-popup">
+                                        <div>
+                                            <div class="profile-photo">
+                                                <img src="data:image/jpeg;base64,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">
+                                            </div>
+                                            <div class="notification-body">
+                                                <b>Ahmed Osama </b> accepted your friend request
+                                                <small class="text-blue">1 minute ago</small>
+                                                <small class="text-muted">14 mutual friend</small>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="profile-photo">
+                                                <img src="/imgs/ahmedmaged.jpg" alt="">
+                                            </div>
+                                            <div class="notification-body">
+                                                <b class="arabic-word">احمد ماجد</b> reacted your previous status
+                                                <small class="text-blue">36 minutes ago</small>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="profile-photo">
+                                                <img src="/imgs/aimen.jpg">
+                                            </div>
+                                            <div class="notification-body">
+                                                <b>Aimen eljundy</b> reacted your profile picture
+                                                <small class="text-muted"> 42 minutes ago</small>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="profile-photo">
+                                                <img src="/imgs/ebrahim kandil.jpg">
+                                            </div>
+                                            <div class="notification-body">
+                                                <b>Ebrahim Kandil </b> accepted your friend request
+                                                <small class="text-muted">2 hours ago</small>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="profile-photo">
+                                                <img src="/imgs/hessein elsayed.jpg">
+                                            </div>
+                                            <div class="notification-body">
+                                                <b>Ebrahim Kandil </b> liked your story
+                                                <small class="text-muted">3 hours ago</small>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="profile-photo">
+                                                <img src="/imgs/juliana evergarden.jfif">
+                                            </div>
+                                            <div class="notification-body">
+                                                <b>juliana evergarden</b> accepted your friend request
+                                                <small class="text-muted">5 hours ago</small>
+                                                <small class="text-blue">2 mutual friends</small>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="profile-photo">
+                                                <img src="/imgs/jhonson.jfif">
+                                            </div>
+                                            <div class="notification-body">
+                                                <b>jhonson</b> accepted your friend request
+                                                <small class="text-muted">5 hours ago</small>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="profile-photo">
+                                                <img src="/imgs/lonever.jfif">
+                                            </div>
+                                            <div class="notification-body">
+                                                <b>Elonever Andrew</b> and <span class="bold-number">8</span> others answered your question
+                                                <small class="text-muted">19 hours ago</small>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                        
+                </a>
+
+                <a class="menu-iteam" id="messages-notifications">
+                    <span><i class="uil uil-facebook-messenger"> <small class="notifications-count-messages">6</small></i></span><h3>Message</h3>
+                </a>
+
+                <a class="menu-iteam" id="theme">
+                    <span><i class="uil uil-palette"></i></span><h3>Theme</h3>
+                    
+                </a>
+
+                <a class="menu-iteam">
+                    <span><i class="uil uil-chart-line"></i></span><h3>Analytics</h3>
+                </a>
+                <a class="menu-iteam">
+                    <span><i class="uil uil-bookmark"></i></i></span><h3>BookMark</h3>
+                </a>
+                <a class="menu-iteam">
+                    <span><i class="uil uil-setting"></i></span><h3>Settings</h3>
+                </a>
+
+
+
+
+                
+        
+            
+            </div>
+
+            <label for="creat-post" class="btn btn-primary">Creat Post</label>
+
+            </div>
+
+
+                        <!--     Middle Side      -->
+
+            <div class="middle">
+                
+                <section class="stories">
+                        
+             <!-- Slider main container -->
+<div class="swiper">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <div class="swiper-slide">
+        <div class="profile-photo">
+            <img src="imgs/story1.jfif">
+        </div>
+        <p class="names">your story</p>
+    </div>
+    
+    <div class="swiper-slide">
+        <div class="profile-photo">
+            <img src="imgs/storyy two.png">
+        </div>
+        <p class="names">Ebrahim Kandil</p>
+    </div>  
+
+    <div class="swiper-slide">
+        <div class="profile-photo">
+            <img src="imgs/story3.jfif">
+        </div>
+        <p class="names">Greeks For Greeks</p>
+    </div>
+
+    <div class="swiper-slide">
+        <div class="profile-photo">
+            <img src="imgs/story 4.jfif">
+        </div>
+        <p class="names">Ahmed Maged</p>
+    </div>
+
+    <div class="swiper-slide">
+        <div class="profile-photo">
+            <img src="imgs/story 5.jfif">
+        </div>
+        <p class="names">Salma Azab</p>
+    </div>
+
+    <div class="swiper-slide">
+        <div class="profile-photo">
+            <img src="imgs/story 6.jfif">
+        </div>
+        <p class="names">Andrew juesuz</p>
+    </div>
+
+    <div class="swiper-slide">
+        <div class="profile-photo">
+            <img src="imgs/story 7.jfif">
+        </div>
+        <p class="names">Blue Duck</p>
+    </div>
+
+    <div class="swiper-slide">
+        <div class="profile-photo">
+            <img src="imgs/story8.png">
+        </div>
+        <p class="names">James Dura</p>
+    </div>
+
+    <div class="swiper-slide">
+        <div class="profile-photo">
+            <img src="imgs/myimg.jpg">
+        </div>
+        <p class="names">Ahmed Senpai </p>
+    </div>
+
+    <div class="swiper-slide">
+        <div class="profile-photo">
+            <img src="imgs/big11.jfif">
+        </div>
+        <p class="names">Monkey D luffy </p>
+    </div>
+
+    <div class="swiper-slide">
+        <div class="profile-photo">
+            <img src="imgs/big12.jfif">
+        </div>
+        <p class="names">Nami Chan </p>
+    </div>
+  </div>
+
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- If we need scrollbar -->
+  
+</div>
+
+<script>
+
+const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  spaceBetween: 10,
+  speed:500,
+  
+  width: 130,
+  grid: {
+    rows: 1.8,
+  },
+
+
+  // If we need pagination
+ 
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+
+});
+
+</script>
+
+                </section>
+                <div class="contlive">
+                    <form class="creat-post">
+                        <div class="profile-photo">
+                            <img src="imgs/myimg.jpg">
+                        </div>
+                        <input type="text" placeholder="What’s on your mind, Ahmed?" id="creat-post">
+                        <input type="submit" value="post" class="btn btn-primary">
+                    </form>
+                </div>
+
+                    
+                                <!---------Feeeds--------->
+                                <div class="feeds">
+                                    <div class="feed">
+                                        <div class="head">
+                                            <div class="user">
+                                                <div class="profile-photo">
+                                                    <img src="/imgs/league profile1.jpg">
+                                                </div>
+                                                <div class="info">
+                                                    <h3>League Of legends</h3>
+                                                    <small>Elmansoura, 15 minutes ago</small><br>
+                                                    <span>New Spirit Blossom Tristana Is On The Way!!</span>
+                                                </div>
+                                                
+                                            </div>
+                                          
+                                          
+
+                                            <span class="edit">
+                                                <i class="uil uil-ellipsis-h"></i>
+                                            </span>
+                                            <p class="Hide-post">
+                                                Hide Post
+                                            <p>
+                                            
+                                        </div>
+
+                                        <div class="photo">
+                                            <img src="/imgs/spirit blosom.jpg" alt="">
+                                        </div>
+                                        <div class="action-buttons">
+                                            <div class="interactions-buttons">
+                                            
+                                                <button id="myhearts" class="hearts active">
+                                                    <span><i class="uil uil-heart empty-heart"></i></span>
+                                                        <i class="fa-solid fa-heart full-heart"></i>
+                                                    
+
+                                                </button>
+                                                <span><i class="uil uil-comment-dots"></i></span>
+                                                <span><i class="uil uil-share"></i></span>
+                                            </div>
+                                            <div class="bookmark">
+                                                <span><i class="uil uil-bookmark-full"></i></span>
+                                                <i class="fa-solid fa-bookmark"></i>
+                                            </div>
+                                            <small class="small-text1" id="changemepls1"></small>
+                                        </div>
+                                        <div class="liked-by">
+                                            <span><img src="imgs/like2.jfif"></span>
+                                            <span><img src="imgs/big11.jfif"></span>
+                                            <span><img src="imgs/big12.jfif"></span>
+                                            <p>Liked By <b>Ali Saleh</b>, <b>Muhamed Salah</b>, and <b><b class="number1">55</b> others</b></p>
+                                        </div>
+
+                                        <div class="caption">
+                                            <p> <b>Spirit Blossom</b> just made port in the Darkflight region! The natural environment appears extremely volatile, full of sudden lightning storms and various winged creatures that glide on gusts of heat rising from the ground. <span class="hash-tag">Spirit Blossom</span> Meanwhile, the local flora? Nonexistent.</p>
+                                        </div>
+                                        <div class="text-muted comment">View all 3,651 comments</div>
+                                    </div>
+
+                                                    <!-- content2-->
+
+
+                                    <div class="feed">
+                                        <div class="head">
+                                            <div class="user">
+                                                <div class="profile-photo">
+                                                    <img src="/imgs/content2 profile.png">
+                                                </div>
+                                                <div class="info">
+                                                    <h3>Bose Egypt</h3>
+                                                    <small>Ciro, Egypt  1 hour ago</small><br>
+                                                    <span class="content2-span">Leverage fantastic comfort & a refined sound with Quietcomfort</span>
+                                                </div>
+                                                
+                                            </div>
+                                         
+                                            <span class="edit">
+                                                <i class="uil uil-ellipsis-h"></i>
+                                            </span>
+
+                                            <p class="Hide-post">
+                                                Hide Post
+                                            <p>
+
+                                        </div>
+
+                                        <div class="photo content2pic">
+                                            <img src="/imgs/content2.jpg" alt="">
+                                        </div>
+                                        <div class="action-buttons">
+                                            <div class="interactions-buttons">
+                                            
+                                                <button id="myhearts" class="hearts active">
+                                                    <span><i class="uil uil-heart empty-heart"></i></span>
+                                                        <i class="fa-solid fa-heart full-heart"></i>
+                                                    
+
+                                                </button>
+                                                <span><i class="uil uil-comment-dots"></i></span>
+                                                <span><i class="uil uil-share"></i></span>
+                                            </div>
+                                            <div class="bookmark">
+                                                <span><i class="uil uil-bookmark-full"></i></span>
+                                                <i class="fa-solid fa-bookmark"></i>
+                                            </div>
+                                            <small class="small-text2" id="changemepls2"></small>
+                                        </div>
+                                        <div class="liked-by">
+                                            <span><img src="/imgs/like2.jfif"></span>
+                                            <span><img src="/imgs/big11.jfif"></span>
+                                            <span><img src="/imgs/big12.jfif"></span>
+                                            <p>Liked By <b>Brawlha</b>, <b>Hamza Soliman</b>, and <b><b class="number2"> -5</b> others</b></p>
+                                        </div>
+
+                                        <div class="caption">
+                                            <p> <b>audioteceg.com</b>You can pay on installments up to 18 months & 0% interest with CIB credit card in stores or up to 12 months online, or through NBE, MASHREQ, Bank Misr, Bank of Cairo, Audi Bank and NBK for up to 12 months & 0% interest or through valU.</p>
+                                        </div>
+                                        <div class="text-muted comment">View all 636 comments</div>
+                                    </div>
+
+
+
+                                                    <!-- content3-->
+
+
+                                    <div class="feed">
+                                        <div class="head">
+                                            <div class="user">
+                                                <div class="profile-photo">
+                                                    <img src="/imgs/dogg.jpg">
+                                                </div>
+                                                <div class="info">
+                                                    <h3>Kentucky Humane Society</h3>
+                                                    <small>USA,California 5 hours ago</small><br>
+                                                    <span>i love to eat, play, fetch and Wuv! <i class="fa-solid fa-heart dogheart"></i></span>
+                                                </div>
+                                                
+                                            </div>
+                                           
+                                            <span class="edit">
+                                                <i class="uil uil-ellipsis-h"></i>
+                                            </span>
+
+                                            <p class="Hide-post">
+                                                Hide Post
+                                            <p>
+
+                                        </div>
+
+                                        <div class="photo videogod">
+                                            <video autoplay muted loop preload="auto">
+
+                                                <source src="/editor.webm">
+                                            </video>
+                                        </div>
+                                        <div class="action-buttons">
+                                            <div class="interactions-buttons">
+                                            
+                                                <button id="myhearts" class="hearts active">
+                                                    <span><i class="uil uil-heart empty-heart"></i></span>
+                                                        <i class="fa-solid fa-heart full-heart"></i>
+                                                    
+
+                                                </button>
+                                                <span><i class="uil uil-comment-dots"></i></span>
+                                                <span><i class="uil uil-share"></i></span>
+                                            </div>
+                                            <div class="bookmark">
+                                                <span><i class="uil uil-bookmark-full"></i></span>
+                                                <i class="fa-solid fa-bookmark"></i>
+                                                
+                                            </div>
+                                            <small class="small-text3" id="changemepls3">Added</small>
+                                        </div>
+                                        <div class="liked-by">
+                                            <span><img src="/imgs/like2.jfif"></span>
+                                            <span><img src="/imgs/big11.jfif"></span>
+                                            <span><img src="/imgs/big12.jfif"></span>
+                                            <p>Liked By <b>Ali Saleh</b>, <b>Muhamed Salah</b>, and <b><b class="number3"></b> others</b></p>
+                                        </div>
+
+                                        <div class="caption">
+                                            <p> <b>Buddy </b> Gretta! This pumpkin is one of the 33 dogs and cats rescued in Operation Dead End. 
+                                                Only a little over a year old, Gretta was emaciated and dehydrated, suffering from a number of conditions including alopecia, muscle atrophy, enlarged lymph nodes, dental disease, corneal ulcer, and more. </p>
+                                        </div>
+                                        <div class="text-muted comment">View all 6,138 comments</div>
+                                    </div>
+
+
+
+                                    
+                                </div>
+                        </div>          
+
+                    <!--     Right Side      -->
+           
+          
+
+
+           <div class="right">
+            <div class="messages" id="messages">
+                <div class="heading">
+                    <h4>Messages</h4><i class="uil uil-edit"></i>
+                </div>
+                <div class="search-bar">
+                    <i class="uil uil-search"></i>
+                    <input type="search" placeholder="Search Message" id="message-search" onkeyup="searcho()">
+                </div>
+
+                <div class="category">
+                    <h6 class="active">Messages</h6>
+                    <h6>General</h6>
+                    <h6 class="message-request">Requests(9)</h6>
+                </div>
+
+                <div class="message">
+                    <div class="profile-photo">
+                        <img src="/imgs/like9.jfif">
+                    </div>
+                    <div class="message-body">
+                        <h5>Moaz Tarek</h5>
+                        <p class="text-muted">Nvm, i’ll be there as soon as i can</p>
+
+                    </div>
+                </div>
+
+                <div class="message">
+                    <div class="profile-photo">
+                        <img src="/imgs/messaggeee.jfif">
+                        <div class="active"></div>
+
+                    </div>
+                    <div class="message-body">
+                        <h5>Olivia Waterson</h5>
+                        <p class="text-blue">Ok just go and download it</p>
+
+                    </div>
+                </div>
+
+                <div class="message">
+                    <div class="profile-photo">
+                        <img src="/imgs/message1.jfif">
+                    </div>
+                    <div class="message-body">
+                        <h5>Noah Ebrahim</h5>
+                        <p class="text-muted">wtf are u talking about?</p>
+
+                    </div>
+                </div>
+
+                <div class="message">
+                    <div class="profile-photo">
+                        <img src="/imgs/message2.jfif">
+                    </div>
+                    <div class="message-body">
+                        <h5>Oliver Sque</h5>
+                        <p class="text-muted">idk ask m.shawal he knows better</p>
+
+                    </div>
+                </div>
+
+                <div class="message">
+                    <div class="profile-photo">
+                        <img src="/imgs/like7.jfif">
+                    </div>
+                    <div class="message-body">
+                        <h5>Ahmed Elsayed</h5>
+                        <p class="text-muted Arabic"> لسه حوالي شهرين وهتبدا جهز نفسك</p>
+
+                    </div>
+                </div>
+
+                <div class="message">
+                    <div class="profile-photo">
+                        <img src="/imgs/like10.jfif">
+                    </div>
+                    <div class="message-body">
+                        <h5>Khaled Sarhan</h5>
+                        <p class="text-muted">No Worries we’ve got this</p>
+
+                    </div>
+                </div>
+
+                <div class="message">
+                    <div class="profile-photo">
+                        <img src="/imgs/story 9.jfif">
+                    </div>
+                    <div class="message-body">
+                        <h5>Fares benladen</h5>
+                        <p class="text-muted Arabic">لم اكن اعلم ذلك حقا</p>
+
+                    </div>
+                </div>
+
+                <div class="message">
+                    <div class="profile-photo">
+                        <img src="/imgs/message3.jfif">
+                        <div class="active"></div>
+
+                    </div>
+                    <div class="message-body">
+                        <h5>Lucas Mateo</h5>
+                        <p class="text-blue">Typical yasuo mains hahahaha</p>
+
+                    </div>
+                </div>
+
+                <div class="message">
+                    <div class="profile-photo">
+                        <img src="/imgs/message4.jfif">
+                        <div class="active"></div>
+                    </div>
+                    <div class="message-body">
+                        <h5>Levi Asher</h5>
+                        <p class="text-blue">i’m not playin this sh*t</p>
+
+                    </div>
+                </div>
+
+
+            </div>
+            
+            <!--end of messages-->
+
+
+            <!--end of messages-->
+
+
+            <div class="friend-request">
+                <h4>Requests</h4>
+                <div class="requests">
+                    <div class="info">
+                        <div class="profile-photo">
+                            <img src="imgs/like6.jfif">
+                        </div>
+                        <div>
+                            <h5>nezuko kamado</h5>
+                            <p class="text-muted">
+                                8 mutual friends
+                            </p>
+                            
+                        </div>
+                    </div>
+                    <div class="action">
+                        <button class="btn btn-primary">
+                            Accept
+                        </button>
+                        <button class="btn">
+                            Decline
+                        </button>
+                        </div>
+                </div>
+            </div>
+
+            <div class="friend-request">
+                <div class="requests">
+                    <div class="info">
+                        <div class="profile-photo">
+                            <img src="imgs/sunggg.jfif">
+                        </div>
+                        <div>
+                            <h5>Sung jin-Woo</h5>
+                            <p class="text-muted">
+                                86 mutual friends
+                            </p>
+                            
+                        </div>
+                    </div>
+                    <div class="action">
+                        <button class="btn btn-primary">
+                            Accept
+                        </button>
+                        <button class="btn">
+                            Decline
+                        </button>
+                        </div>
+                </div>
+            </div>
+
+            <div class="friend-request">
+                <div class="requests">
+                    <div class="info">
+                        <div class="profile-photo">
+                            <img src="imgs/nano.jfif">
+                        </div>
+                        <div>
+                            <h5>Fandom hungh</h5>
+                            <p class="text-muted">
+                                54 mutual friends
+                            </p>
+                            
+                        </div>
+                    </div>
+                    <div class="action">
+                        <button class="btn btn-primary">
+                            Accept
+                        </button>
+                        <button class="btn">
+                            Decline
+                        </button>
+                        </div>
+                </div>
+            </div>
+
+
+            </div>
+
+        </div>
+    </main>
+
+    <!--=============== Theme Customization===================-->
+
+<div class="customize-theme">
+    <div class="card">
+        <div class="Exit-theme" class="exito"><i class="fa-solid fa-circle-xmark exito"></i></div>
+        <h2>Customize Your Site View</h2>
+        <p class="text-muted"> Manage your font size, color and background</p>
+
+        <!----font size------>
+        <div class="font-size">
+            <h4>Font Size</h4>
+            <div>
+                <h6>Aa</h6>
+                <div class="choose-size">
+            <span class="font-size1"></span>
+            <span class="font-size2"></span>
+            <span class="font-size3 active"></span>
+            <span class="font-size4"></span>
+            <span class="font-size5"></span>
+            <div class="progress" id="progress"></div>
+                </div>
+                
+                <h3>Aa</h3>
+            </div>
+        </div>
+
+        <div class="color">
+            <h4>color</h4>
+            <div class="choose-color">
+                <span class="color-1 active"></span>
+                <span class="color-2"></span>
+                <span class="color3"></span>
+                <span class="color-4"></span>
+                <span class="color-5"></span>
+                <div class="themover"></div>
+            </div>
+        </div>
+            <!--Background color change--->
+            <div class="background">
+                <h4>Background</h4>
+                <div class="choose-bg">
+                    <div class="bg-1 active bege">
+                        <span></span>
+                        <h5 for="bg-1">Light</h5>
+                    </div>
+
+                    <div class="bg-2 bege">
+                        <span></span>
+                        <h5 for="bg-2">Dim</h5>
+                    </div>
+
+                    <div class="bg-3 bege">
+                        <span></span>
+                        <h5 for="bg-3">Dark</h5>
+                    </div>
+
+
+                </div>
+            </div>
+
+    </div>
+</div>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
+    <script src="main.js"></script>
+</body>
